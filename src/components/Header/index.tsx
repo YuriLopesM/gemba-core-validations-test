@@ -37,8 +37,8 @@ export function Header({ theme, changeTheme }: HeaderProps) {
                 </ul>
                 <button onClick={changeTheme}>
                     { theme == 'light' ?
-                        <img src="/assets/icons/light-mode.svg" alt="test" /> :
-                        <img src="/assets/icons/dark-mode.svg" alt="test" />
+                        <img src="/assets/icons/light-mode.svg" alt="Light mode icon" height={24} width={24}/> :
+                        <img src="/assets/icons/dark-mode.svg" alt="Dark mode icon" height={24} width={24}/>
                     }
                     
                 </button>
