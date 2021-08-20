@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -37,8 +38,8 @@ export function Header({ theme, changeTheme }: HeaderProps) {
                 </ul>
                 <button onClick={changeTheme}>
                     { theme == 'light' ?
-                        <img src="/assets/icons/light-mode.svg" alt="Light mode icon" height={24} width={24}/> :
-                        <img src="/assets/icons/dark-mode.svg" alt="Dark mode icon" height={24} width={24}/>
+                        <Image src="/assets/icons/light-mode.svg" alt="Light mode icon" height={24} width={24}/> :
+                        <Image src="/assets/icons/dark-mode.svg" alt="Dark mode icon" height={24} width={24}/>
                     }
                     
                 </button>
