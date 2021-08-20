@@ -74,7 +74,7 @@ export const Container = styled.header`
 
             li {
                 text-transform: uppercase;
-                color: var(--subtext);
+                color: var(--text);
 
                 &.localeActive { 
                     font-weight: 600;

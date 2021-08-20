@@ -21,8 +21,8 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-    accent: '#348BF0',
-    info: '#4AC5EC', 
+    accent: '#4AC5EC',
+    info: '#348BF0', 
   
     danger: '#F63F60',
     warning: '#FFB039', 
