@@ -1,0 +1,9 @@
+{
+    "locales": ["pt", "en", "es"], 
+    "defaultLocale": "pt",
+    "pages": {
+        "*": ["common"],
+        "/themes": ["themes"],
+        "/i18n": ["i18n"]
+    }
+}
