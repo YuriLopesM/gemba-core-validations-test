@@ -3,14 +3,20 @@ import styled from "styled-components";
 export const Container = styled.header`
     display: flex;
 
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    
+    background: var(--background);
     justify-content: space-between;
     align-items: center;
 
-    max-width: 1120px;
+    width: 100%;
     height: 5rem;
 
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 4rem;
     border-bottom: 1px solid var(--neutral_300);
 
     h1 { 

@@ -19,7 +19,7 @@ interface ITheme {
   neutral_400: string,
   neutral_300: string, 
   neutral_200: string,
-  neutral_100: string
+  neutral_100: string,
 }
 
 export const GlobalStyle = createGlobalStyle<{theme: ITheme}>`
@@ -93,6 +93,43 @@ export const GlobalStyle = createGlobalStyle<{theme: ITheme}>`
 
   button {
     cursor: pointer;
+  }
+
+  code {
+    background: var(--neutral_300);
+    padding: 0 0.25rem;
+  }
+
+  .link-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      a { 
+          position: relative;
+          color: var(--accent);
+          font-weight: 600;
+
+          & + a {
+              &::before {
+                  content: '|';
+                  position: absolute;
+                  left: -1rem;
+              }
+          }
+      }
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.75em;
+  }
+ 
+  ::-webkit-scrollbar-track {
+    background: var(--neutral_300);
+  }
+ 
+  ::-webkit-scrollbar-thumb {
+    background: var(--neutral_600);
   }
 
 `

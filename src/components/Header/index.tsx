@@ -15,22 +15,28 @@ export function Header({ theme, changeTheme }: HeaderProps) {
     const router = useRouter();
      
     return (
-        <Container>
+        <Container> 
             <h1>{t("common:title")}</h1>
 
             <nav>
+                <Link href='/cookies'>
+                    <a className={router.pathname == "/cookies" ? "anchorActive" : ""}>Cookies</a>
+                </Link>
+                <Link href='/i18n'>
+                    <a className={router.pathname == "/i18n" ? "anchorActive" : ""}>i18n</a>
+                </Link>
                 <Link href='/themes'>
                     <a className={router.pathname == "/themes" ? "anchorActive" : ""}>{t("common:themes")}</a>
                 </Link>
-                <Link href='/i18n'>
-                    <a className={router.pathname == "/i18n" ? "anchorActive" : ""}>{t("common:i18n")}</a>
+                <Link href='/charts'>
+                    <a className={router.pathname == "/charts" ? "anchorActive" : ""}>{t("common:charts")}</a>
                 </Link>
             </nav>
             <div>
                 <ul>
                     {router.locales?.map((locale) => (
                         <li className={router.locale == locale ? "localeActive" : ""} key={locale}>
-                            <Link href={router.asPath} locale={locale}>
+                            <Link scroll={false} href={router.asPath} locale={locale}>
                                 <a>{locale}</a>
                             </Link>
                         </li>

@@ -15,9 +15,9 @@ export const lightTheme = {
     neutral_600: '#737380',
     neutral_500: 'red', 
     neutral_400: '#A8A8B3',
-    neutral_300: '#DBCCDD', 
+    neutral_300: '#DEDEDE', 
     neutral_200: '#F8F8F8',
-    neutral_100: '#F2F2F2'
+    neutral_100: '#F2F2F2',
 }
 
 export const darkTheme = {
@@ -33,7 +33,7 @@ export const darkTheme = {
 
     neutral_900: '#F2F2F2',
     neutral_800: '#F8F8F8',
-    neutral_700: '#DBDCDD',
+    neutral_700: '#DEDEDE',
     neutral_600: '#A8A8B3',
     neutral_500: 'blue', 
     neutral_400: '#737380',
