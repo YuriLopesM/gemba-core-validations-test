@@ -16,7 +16,9 @@ export function Header({ theme, changeTheme }: HeaderProps) {
      
     return (
         <Container> 
-            <h1>{t("common:title")}</h1>
+            <Link href='/'>
+                <h1>{t("common:title")}</h1>
+            </Link>
 
             <nav>
                 <Link href='/cookies'>
@@ -30,6 +32,12 @@ export function Header({ theme, changeTheme }: HeaderProps) {
                 </Link>
                 <Link href='/charts'>
                     <a className={router.pathname == "/charts" ? "anchorActive" : ""}>{t("common:charts")}</a>
+                </Link>
+                <Link href='/auth'>
+                    <a className={router.pathname == "/auth" ? "anchorActive" : ""}>Autenticação</a>
+                </Link>
+                <Link href='/404'>
+                    <a className={router.pathname == "/404" ? "anchorActive" : ""}>404</a>
                 </Link>
             </nav>
             <div>

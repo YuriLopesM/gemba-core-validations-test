@@ -21,6 +21,13 @@ export const Container = styled.header`
 
     h1 { 
         font-size: 1.75rem;
+        cursor: pointer;
+
+        transition: 0.2s color ease-in;
+
+        &:hover{
+            color: var(--accent);
+        }
     }
 
     nav {
@@ -49,6 +56,7 @@ export const Container = styled.header`
             &.anchorActive {
                 color: var(--text);
                 font-weight: 500;
+                background: var(--accent) 0.7;
             }
 
             &.anchorActive::after {
@@ -81,11 +89,23 @@ export const Container = styled.header`
             li {
                 text-transform: uppercase;
                 color: var(--text);
+                
+                transition: 0.2s all;
+
+                &:hover {
+                    color: var(--subtext);
+                }
 
                 &.localeActive { 
                     font-weight: 600;
-                    color: var(--accent)
+                    color: var(--accent);
+
+                    &:hover {
+                        filter: brightness(0.8)
+                    }
                 }
+
+
             }
             
         }

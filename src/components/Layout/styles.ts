@@ -30,21 +30,64 @@ export const Container = styled.article`
         gap: 1.5rem;
         margin: 3rem 0 8rem;
 
-        //teste
-        div {
-            display: flex;
-            justify-content: center;
-        }
-
+        
         h3 { 
             font-weight: 600;
             margin-bottom: 0.25rem;
             font-size: 1.75rem;
         }
-
+        
         p { 
             font-size: 1.2rem;
             line-height: 2rem;
+        }
+        
+        
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5rem;
+        }
+
+        table {
+            border-collapse: collapse;
+
+            td, th {
+                border-bottom: 1px solid var(--neutral_300);
+                padding: 1rem;
+            }
+            
+            td {
+                &:not(:first-child) {
+                    font-weight: 600;
+                    color: var(--accent);
+                    text-align: center;
+                    font-size: 1.25rem;
+                }
+
+            }
+
+            th {
+                &:first-child{ 
+                    text-align: left;
+                }
+            }
+            
+
+            tr { 
+                transition: all 0.2s;
+                
+                &:nth-child(even) {
+                    background-color: var(--neutral_100);
+                }
+
+                &:hover {
+                    background-color: var(--neutral_300); 
+                }
+
+            }
         }
 
         ul {

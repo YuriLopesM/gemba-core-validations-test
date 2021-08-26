@@ -106,17 +106,17 @@ export const GlobalStyle = createGlobalStyle<{theme: ITheme}>`
       gap: 2rem;
 
       a { 
-          position: relative;
-          color: var(--accent);
-          font-weight: 600;
+        position: relative;
+        color: var(--accent);
+        font-weight: 600;
 
-          & + a {
-              &::before {
-                  content: '|';
-                  position: absolute;
-                  left: -1rem;
-              }
-          }
+        & + a {
+            &::before {
+                content: '|';
+                position: absolute;
+                left: -1rem;
+            }
+        }
       }
   }
 
