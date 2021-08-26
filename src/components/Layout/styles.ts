@@ -28,7 +28,11 @@ export const Container = styled.article`
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        margin: 3rem 0 8rem;
+        margin: 3rem 0 4rem;
+
+        & + section {
+            margin-top: 8rem
+        }
 
         
         h3 { 

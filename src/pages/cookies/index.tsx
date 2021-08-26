@@ -33,6 +33,24 @@ export default function Cookies() {
                     </Link>
                 </footer> 
             </section>
+
+            <section>
+                <h3 id="LGPD">Novas Diretrizes da LGPD</h3>
+                <p>Conforme a nova Lei Geral de Proteção a Dados temos o conceito de <em>"dado pessoal: informação relacionada a pessoa natural identificada ou identificável."</em> </p>
+
+
+                <footer className="link-wrapper">
+                    <Link href="https://goadopt.io/blog/cookies-e-lgpd/">
+                        <a target="_blank">LGPD e Cookies: o que você precisa saber!</a>
+                    </Link>
+                    <Link href="https://www.comunique-se.com.br/blog/lgpd-os-impactos-dos-cookies/">
+                        <a target="_blank">LGPD: Os impactos dos Cookies</a>
+                    </Link>
+                    <Link href="https://www.consumidormoderno.com.br/2021/04/30/cookies-lgpd/">
+                        <a target="_blank">A relação do uso de Cookies com a LGPD</a>
+                    </Link>
+                </footer> 
+            </section>
         </>
     )
  }
