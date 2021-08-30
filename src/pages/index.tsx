@@ -1,6 +1,8 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { parseCookies, setCookie } from 'nookies';
+import { getAPIClient } from '../services/axios';
 
 const Home: NextPage = () => {
   return (
@@ -24,6 +26,43 @@ const Home: NextPage = () => {
       </section>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const apiClient = getAPIClient(ctx);
+  const { ['@core:token']: token } = parseCookies(ctx);
+  let permissions: String[] = [];
+
+  if (!token) {
+    setCookie(ctx, '@core:redirect_pathname', `http://${ctx.req.headers.host}/${ctx.locale}/${ctx.resolvedUrl}`, {
+        maxAge: 60 * 60 * 2 
+    })
+    return {
+        redirect: {
+            destination: 'http://vancouver:3000/',
+            permanent: false
+        }
+    }
+}
+  await apiClient.post('/login')
+    .then((response) => {
+      permissions = response.data;
+    }, (error) => {
+      console.log(error);
+    })
+    
+  if (!permissions.length){
+    return {
+      redirect: {
+        destination: '404',
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    props: {}
+  }
 }
 
 export default Home

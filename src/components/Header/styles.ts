@@ -76,6 +76,7 @@ export const Container = styled.header`
 
     div {
         display: flex;
+        align-items: center;
         gap: 2rem;
 
         ul {
@@ -114,6 +115,24 @@ export const Container = styled.header`
             background: none;
             border: 0;
     
+            &.signOut {
+                font-size: 1rem;
+                font-weight: 600;
+
+                height: 50%;
+
+                padding: 0.5rem 1rem;
+                border: 2px solid var(--danger);
+                border-radius: 0.25rem;
+                color: var(--danger);
+
+                transition: 0.2s all ease-in;
+
+                &:hover {
+                    background: var(--danger);
+                    color: var(--white)
+                }
+            }
         }
     }
 

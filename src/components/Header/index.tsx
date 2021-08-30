@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
 import { Container } from './styles'
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 interface HeaderProps {
     theme: string;
@@ -13,6 +15,7 @@ interface HeaderProps {
 export function Header({ theme, changeTheme }: HeaderProps) {
     let { t } = useTranslation();
     const router = useRouter();
+    const { signOut } = useContext(AuthContext);
      
     return (
         <Container> 
@@ -56,6 +59,9 @@ export function Header({ theme, changeTheme }: HeaderProps) {
                         <Image src="/assets/icons/dark-mode.svg" alt="Dark mode icon" height={24} width={24}/>
                     }
                     
+                </button>
+                <button className="signOut" onClick={() => signOut()}>
+                    Sign Out
                 </button>
             </div>
            

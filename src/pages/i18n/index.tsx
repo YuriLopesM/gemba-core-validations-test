@@ -13,7 +13,7 @@ export default function i18n() {
             </header>
             <section>
                 <h3 id="concept">Conceito</h3>
-                <p>Internacionalização é popularmente conhecido no mundo de desenvolvimento como <strong>i18n</strong> ("i" + 18 letras + "n") e trata-se de um processo de criação ou transformação de produtos e/ou serviços, de modo que eles possam facilmente ser adaptados para idiomas e culturas locais específicas</p>
+                <p>Internacionalização é popularmente conhecido no mundo de desenvolvimento como <strong>i18n</strong> (&quot;i&quot; + 18 letras + &quot;n&quot;) e trata-se de um processo de criação ou transformação de produtos e/ou serviços, de modo que eles possam facilmente ser adaptados para idiomas e culturas locais específicas</p>
                 <ul>
                     <li><strong>Competitividade internacional</strong>: a aplicação não compete apenas com mercado interno;</li>
                     <li><strong>Lucros maiores</strong>: pode-se aumentar a quantidade de clientes visando a globalização;</li>

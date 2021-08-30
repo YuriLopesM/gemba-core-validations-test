@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
+import { destroyCookie, parseCookies, setCookie } from 'nookies';
+import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
 
 interface ChartProps {
     barChart: any;
@@ -21,7 +24,7 @@ export default function Charts({ barChart, areaChart, heatMap, scatterPlot }: Ch
                 <h1>Gráficos</h1>
                 <p>Demo, casos de usos, pesquisas e bibliotecas</p>
             </header>
-            <section> {/* Gráficos*/},
+            <section> {/* Gráficos*/}
             
                 <h3 id="demo">Demo</h3>
                 <main>
@@ -155,8 +158,22 @@ export default function Charts({ barChart, areaChart, heatMap, scatterPlot }: Ch
     )
 }
 
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    const { ['@core:token']: token } = parseCookies(ctx);
+    destroyCookie(ctx, '@core:redirect_pathname');
     
+    if (!token) {
+        setCookie(ctx, '@core:redirect_pathname', `http://${ctx.req.headers.host}/${ctx.locale}/${ctx.resolvedUrl}`, {
+            maxAge: 60 * 60 * 2 
+        })
+        return {
+            redirect: {
+                destination: 'http://vancouver:3000/',
+                permanent: false
+            }
+        }
+    }
+
     let series1 = [];
     let series2 = [];
     let label = [];

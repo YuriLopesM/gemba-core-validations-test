@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
-import { api } from '../services/api';
-import { setCookie } from 'nookies';
+import { destroyCookie, parseCookies, setCookie } from 'nookies';
 import { useRouter } from 'next/router';
 
 type AuthProps = {
@@ -14,43 +13,31 @@ type IUser = {
 type AuthContextData = {
     user: IUser | null;
     isAuthenticated: boolean;
-    signIn: (data: SignInData) => Promise<void>
-}
-
-type SignInData = {
-    username: string;
-    password: string;
+    signOut: () => void;
 }
 
 export const AuthContext = createContext({} as AuthContextData);
 
 export function AuthProvider({children}: AuthProps) { 
+    const { 
+        ['@core:token']: cookieToken,
+    } = parseCookies();
+
     const [user, setUser] = useState<IUser | null>(null)
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!cookieToken);
     const router = useRouter();
-    const isAuthenticated = !!user;
 
 
-    async function signIn({ username, password }: SignInData) { 
-        //chamada para API e trazer o token, salvando-o nos cookies
-        const response = await api.post('login', {
-            username,
-            password,
-        })
-
-        const { token, user } = response.data;
-        
-        setCookie(null, '@core:token', token, {
-            maxAge: 60 * 60 * 24 * 7 // 1 week
-        })
-
-        setUser(user)
-
-        router.push('/')
-
+    async function signOut() {
+        destroyCookie({}, '@core:token', {path: '/'});
+        destroyCookie({}, '@core:redirect_pathname', {path: '/'});
+        setUser(null);
+        setIsAuthenticated(false);
+        router.push('http://vancouver:3000/')
     }
 
     return (
-        <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
+        <AuthContext.Provider value={{ user, isAuthenticated, signOut }}>
             {children}
         </AuthContext.Provider>
     )

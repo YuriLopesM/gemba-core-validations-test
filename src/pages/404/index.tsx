@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Head from 'next/head';
-import { Container } from './styles';
+import { Container } from '../../styles/404';
 
 import robotoImg from '../../../public/assets/images/ErrorRobot.svg';
 import { useRouter } from 'next/router';

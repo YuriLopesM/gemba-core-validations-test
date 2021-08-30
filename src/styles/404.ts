@@ -4,6 +4,7 @@ export const Container = styled.main`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 5rem;
 
     div {
         max-width: 50%;
