@@ -43,22 +43,22 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             permanent: false
         }
     }
-}
-  await apiClient.post('/login')
-    .then((response) => {
-      permissions = response.data;
-    }, (error) => {
-      console.log(error);
-    })
-    
-  if (!permissions.length){
-    return {
-      redirect: {
-        destination: '404',
-        permanent: false
-      }
-    }
   }
+  // await apiClient.post('/login')
+  //   .then((response) => {
+  //     permissions = response.data;
+  //   }, (error) => {
+  //     console.log(error);
+  //   })
+    
+  // if (!permissions.length){
+  //   return {
+  //     redirect: {
+  //       destination: '404',
+  //       permanent: false
+  //     }
+  //   }
+  // }
 
   return {
     props: {}

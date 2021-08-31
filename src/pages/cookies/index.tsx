@@ -53,18 +53,15 @@ export default function Cookies() {
             </section>
             <section>
                 <h3 id="libs">Bibliotecas</h3>
-                <p>Não é possível utilizar o padrão do JavaScript para lidar com Cookies (document.cookie), pois mantemos o estado da aplicação com o servidor e em seu contexto não existe <strong>document</strong>.</p>
+                <p>Não é possível utilizar o padrão do JavaScript para lidar com Cookies (document.cookie), pois mantemos o estado da aplicação com o servidor e em seu contexto não existe o <strong>document</strong>. Para isto, utilizamos a biblioteca <strong>Nookies</strong>, que possui de maneira integrada a utilização do Next com SSR (Server-Side Rendering).</p>
 
 
                 <footer className="link-wrapper">
-                    <Link href="https://goadopt.io/blog/cookies-e-lgpd/">
-                        <a target="_blank">LGPD e Cookies: o que você precisa saber!</a>
+                    <Link href="https://github.com/maticzav/nookies">
+                        <a target="_blank">Nookies (Repositório no GitHub)</a>
                     </Link>
-                    <Link href="https://www.comunique-se.com.br/blog/lgpd-os-impactos-dos-cookies/">
-                        <a target="_blank">LGPD: Os impactos dos Cookies</a>
-                    </Link>
-                    <Link href="https://www.consumidormoderno.com.br/2021/04/30/cookies-lgpd/">
-                        <a target="_blank">A relação do uso de Cookies com a LGPD</a>
+                    <Link href="https://www.youtube.com/watch?v=zSl_n-9yGRs">
+                        <a target="_blank">Next.js - Cookies ou LocalStorage? (YouTube)</a>
                     </Link>
                 </footer> 
             </section>

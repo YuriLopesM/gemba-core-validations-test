@@ -31,7 +31,19 @@ export const Container = styled.article`
         margin: 3rem 0 4rem;
 
         & + section {
-            margin-top: 8rem
+            margin-top: 8rem;
+
+            &::before {
+                content: '';
+                height: 1px;
+                width: 100%;
+
+                position: absolute;
+                top: -4rem;
+                left: 0;
+
+                background: var(--neutral_400);
+            }
         }
 
         
@@ -53,6 +65,26 @@ export const Container = styled.article`
             align-items: center;
             flex-wrap: wrap;
             gap: 5rem;
+        }
+
+        button { 
+            max-width: 20%;
+            padding: 1rem 2rem;
+
+            font-weight: 600;
+
+            background: none;
+            color: var(--accent);
+
+            border: 2px solid var(--accent);
+            border-radius: 0.5rem;
+        }
+
+        .next-image {
+            display: grid;
+            grid-template-columns: 450px 600px;
+            column-gap: 2rem
+           
         }
 
         table {
@@ -100,20 +132,6 @@ export const Container = styled.article`
 
             li {
                 line-height: 2rem;
-            }
-        }
-
-        & + section {
-            &::before {
-                content: '';
-                height: 1px;
-                width: 100%;
-
-                position: absolute;
-                top: -4rem;
-                left: 0;
-
-                background: var(--neutral_400);
             }
         }
 

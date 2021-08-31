@@ -2,19 +2,49 @@ import Head from 'next/head';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { destroyCookie, parseCookies, setCookie } from 'nookies';
-import { useRouter } from 'next/router';
+
 import { GetServerSideProps } from 'next';
+import { useState } from 'react';
+
+interface IChart {
+    options: any;
+    series: any[];
+}
+
 
 interface ChartProps {
-    barChart: any;
-    areaChart: any;
-    heatMap: any;
-    scatterPlot: any
+    barChart: IChart;
+    areaChart: IChart;
+    heatMap: IChart;
+    scatterPlot: IChart
 }
 
 
 export default function Charts({ barChart, areaChart, heatMap, scatterPlot }: ChartProps) {
     const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
+    const [barData, setBarData] = useState<IChart>(barChart);
+
+    function updateBarChartData() {
+        let data: number[] = [];
+
+        for (let i = 0; i < 8; i++) {
+            data.push(Math.floor(Math.random() * 100))
+        }
+
+        setBarData(prevState => {
+            return {
+                options: { ...prevState.options },
+                series: [
+                    {
+                        name: "series-1",
+                        data: data
+                    }
+                    
+                ]
+            }
+        })
+    }
+    
     return (
         <>
             <Head>
@@ -27,10 +57,11 @@ export default function Charts({ barChart, areaChart, heatMap, scatterPlot }: Ch
             <section> {/* Gráficos*/}
             
                 <h3 id="demo">Demo</h3>
+                <button onClick={updateBarChartData}>Update Bar Chart</button>
                 <main>
                     <Chart
-                        options={barChart.options}
-                        series={barChart.series}
+                        options={barData.options}
+                        series={barData.series}
                         type="bar"
                         width="500"
                         height="300"
@@ -69,7 +100,6 @@ export default function Charts({ barChart, areaChart, heatMap, scatterPlot }: Ch
             </section>
             <section> 
                 <h3 id="libs">Bibliotecas</h3>
-                <p></p>
                 <table>
                     <thead>
                     <tr>
@@ -151,6 +181,15 @@ export default function Charts({ barChart, areaChart, heatMap, scatterPlot }: Ch
                     </Link>
                     <Link href="https://recharts.org/">
                         <a target="_blank">Recharts</a>
+                    </Link>
+                </footer>
+            </section>
+            <section> 
+                <h3 id="apexcharts">ApexCharts</h3>
+                <p>Escolhemos ApexCharts por ser o que tem a maior gama de gráficos que necessitamos. Além disso, possui um estilo bonito, limpo e funcionalidades nativas como zooms, faixa para selecionar um espaço e exportação de imagens, como demonstrado na Demo. Possui também <em>Wrappers</em> para Angular e Vue, facilitando caso necessite o uso futuro de outro framework.</p>
+                <footer className="link-wrapper">
+                    <Link href="https://apexcharts.com/react-chart-demos/">
+                        <a target="_blank">React wrapper</a>
                     </Link>
                 </footer>
             </section>
