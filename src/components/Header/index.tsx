@@ -24,44 +24,16 @@ export function Header({ theme, changeTheme }: HeaderProps) {
             </Link>
 
             <nav>
-                <Link href='/cookies'>
-                    <a className={router.pathname == "/cookies" ? "anchorActive" : ""}>Cookies</a>
-                </Link>
-                <Link href='/i18n'>
-                    <a className={router.pathname == "/i18n" ? "anchorActive" : ""}>i18n</a>
-                </Link>
-                <Link href='/themes'>
-                    <a className={router.pathname == "/themes" ? "anchorActive" : ""}>{t("common:themes")}</a>
-                </Link>
                 <Link href='/charts'>
                     <a className={router.pathname == "/charts" ? "anchorActive" : ""}>{t("common:charts")}</a>
                 </Link>
-                <Link href='/auth'>
-                    <a className={router.pathname == "/auth" ? "anchorActive" : ""}>Autenticação</a>
-                </Link>
-                <Link href='/404'>
-                    <a className={router.pathname == "/404" ? "anchorActive" : ""}>404</a>
-                </Link>
             </nav>
             <div>
-                <ul>
-                    {router.locales?.map((locale) => (
-                        <li className={router.locale == locale ? "localeActive" : ""} key={locale}>
-                            <Link scroll={false} href={router.asPath} locale={locale}>
-                                <a>{locale}</a>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
                 <button onClick={changeTheme}>
                     { theme == 'light' ?
                         <Image src="/assets/icons/light-mode.svg" alt="Light mode icon" height={24} width={24}/> :
                         <Image src="/assets/icons/dark-mode.svg" alt="Dark mode icon" height={24} width={24}/>
                     }
-                    
-                </button>
-                <button className="signOut" onClick={() => signOut()}>
-                    Sign Out
                 </button>
             </div>
            
